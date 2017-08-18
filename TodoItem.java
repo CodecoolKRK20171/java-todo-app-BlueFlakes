@@ -24,8 +24,10 @@ public class TodoItem{
     public boolean getTaskStatus()
     {
         return this.isDone;
+
     }
 
+    @Override
     public String toString()
     {
         if (this.isDone)
@@ -37,8 +39,4 @@ public class TodoItem{
         return null;
 
     }
-
-
-
-
 }

@@ -25,9 +25,25 @@ public class TodoList{
         }
         else
         {
-            System.out.println("handle empty task details");
+            System.out.println("Error: next time please provide any details.");
 
         }
+
+        System.out.println();
+    }
+
+    public void findAndMarkTask(int index)
+    {
+        if (index > 0 && index <= this.taskList.size())
+        {
+            TodoItem task = this.taskList.get(index - 1);
+            task.markTaskAsDone();
+
+        }
+        else
+            System.out.println("Error: index out of range.");
+
+        System.out.println();
     }
 
     public void archiveOldTasks()
@@ -41,6 +57,9 @@ public class TodoList{
             taskList.remove((int) index);
 
         }
+
+        System.out.println("Succesfuly archived.");
+        System.out.println();
     }
 
     private List<Integer> getItemsIndexToDelete()
@@ -61,13 +80,22 @@ public class TodoList{
 
     public void showExistingTasks()
     {
-        for(int i = 0; i < this.taskList.size(); i++)
+        if (this.taskList.size() > 0)
         {
-            String index = Integer.toString(i+1);
-            TodoItem task = this.taskList.get(i);
-            System.out.println(index + ". " + task);
+            for(int i = 0; i < this.taskList.size(); i++)
+            {
+                String index = Integer.toString(i+1);
+                TodoItem task = this.taskList.get(i);
+                System.out.println("\t" + index + ". " + task);
+
+            }
+        }
+        else
+        {
+            System.out.println("Empty list.");
+
         }
 
+        System.out.println();
     }
-
 }
